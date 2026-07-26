@@ -19,13 +19,14 @@ Three window managers, one on each OS. The configs live in
 [dotfiles](https://github.com/zrrbite/dotfiles); the full per-WM documentation
 is linked under each column.
 
-**AeroSpace and GlazeWM mirror each other on purpose. Hyprland does not.**
+**All three now share `hjkl`. Only the modifier differs** — `SUPER` on Linux,
+`alt` on the other two.
 
 | Intent | Hyprland (Linux) | AeroSpace (macOS) | GlazeWM (Windows) |
 |---|---|---|---|
 | **Modifier** | `SUPER` | `alt` (Option) | `alt` |
-| Focus left/down/up/right | `SUPER`+arrows | `alt`+`h/j/k/l` | `alt`+`h/j/k/l` or arrows |
-| Move window in direction | — | `alt-shift`+`h/j/k/l` | `alt-shift`+`h/j/k/l` or arrows |
+| Focus left/down/up/right | `SUPER`+`h/j/k/l` or arrows | `alt`+`h/j/k/l` | `alt`+`h/j/k/l` or arrows |
+| Move window in direction | `SUPER-shift`+`h/j/k/l` or arrows | `alt-shift`+`h/j/k/l` | `alt-shift`+`h/j/k/l` or arrows |
 | Cycle focus | — | `alt-tab` | `alt-space` |
 | Workspace N | `SUPER`+`1`–`0` | `alt`+`1`–`9` | `alt`+`1`–`9` |
 | Send window to workspace N | `SUPER-SHIFT`+N *(stays)* | `alt-shift`+N *(follows)* | `alt-shift`+N *(follows)* |
@@ -35,23 +36,26 @@ is linked under each column.
 | Close window | `SUPER-C` | `alt-shift-q` | `alt-shift-q` |
 | Fullscreen | — | `alt-f` | `alt-f` |
 | Toggle floating | `SUPER-V` | `alt-shift-space` | `alt-shift-space` |
-| Tiling direction | `SUPER-J` | `alt-v` | `alt-v` |
+| Tiling direction | `SUPER-T` | `alt-v` | `alt-v` |
 | Resize width − / + | `SUPER`+`=` *(1080² only)* | `alt-u` / `alt-p` | `alt-u` / `alt-p` |
 | Resize height − / + | — | `alt-i` / `alt-o` | `alt-i` / `alt-o` |
 | Resize mode | — | `alt-r` | *disabled — reserved for PowerToys Run* |
 | Terminal | `SUPER-Q` | `alt-enter` | `alt-enter` |
 | App launcher | `SUPER-R` | — *(Spotlight)* | `alt-r` *(PowerToys Run)* |
 | Reload config | — | `alt-shift-r` | `alt-shift-r` |
+| Lock the screen | `SUPER-CTRL-L` | `⌃⌘Q` *(macOS)* | *(Win+L)* |
 | Exit the WM | `SUPER-M` *(no confirm)* | — | `alt-shift-e` |
 | In-app cheatsheet | `SUPER-F1` | — | `alt-F12` |
 
 A dash means nothing is bound for that intent.
 
-**Why Hyprland is the odd one out:** its config sets
+**Why Hyprland keeps a different modifier:** its config sets
 `kb_options = grp:alt_shift_toggle`, so **Alt+Shift** cycles between the Danish
 and US keyboard layouts. That is exactly the chord the other two use for moving
-windows, so `alt` was not available as the modifier. The missing `hjkl` focus
-bindings have no such excuse — they are leftovers from the stock config.
+windows, so `alt` is not available there. The `hjkl` bindings had no such
+excuse — they were missing entirely until 2026-07-26, a leftover from the stock
+config, and are now bound to match. Adding them moved `togglesplit` to
+`SUPER-T` and the lock screen to `SUPER-CTRL-L`.
 
 The configs are authoritative; this table is a convenience copy. When they
 disagree, the config wins — and on Hyprland, `SUPER-F1` reads the live bindings
