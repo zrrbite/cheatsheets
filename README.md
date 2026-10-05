@@ -3,8 +3,8 @@
 Quick reference for the things I look up often, and an index of where the
 longer notes actually live.
 
-This repo is deliberately thin. It holds **TL;DR tables** for the two things I
-reach for daily — tiling window managers and Neovim — and otherwise it is an
+This repo is deliberately thin. It holds **TL;DR tables** for the things I
+reach for daily — tiling window managers, Neovim and yazi — and otherwise it is an
 **index**: pointers to documentation in my other repos, plus a few canonical
 external references per topic. Notes live next to the thing they describe. This
 page tells you which repo to open.
@@ -163,6 +163,75 @@ On Linux, `SUPER-F3` pops this list up in rofi.
 
 ---
 
+## TL;DR — yazi (terminal file manager)
+
+The Finder replacement, on macOS and Arch. Launch with **`y`**: quitting with
+`q` leaves your shell in the folder you browsed to. Plain `yazi` doesn't.
+Config in [dotfiles/yazi](https://github.com/zrrbite/dotfiles/tree/master/yazi).
+Keys are checked against yazi 26.9's own keymap, and **`~` inside yazi lists
+them all**.
+
+**Move**
+
+| Key | Action |
+|---|---|
+| `h` / `l` | Up to the parent folder / into a folder |
+| `j` / `k` | Down / up |
+| `gg` / `G` | Top / bottom |
+| `Ctrl-d` / `Ctrl-u` | Half a page down / up |
+| `H` / `L` | Back / forward through folders you've visited |
+| `z` / `Z` | Jump anywhere: fuzzy (fzf) / frecent (zoxide) |
+
+**Act on files**
+
+| Key | Action |
+|---|---|
+| `Enter` / `o` | Open with the default app (`O`: choose the app) |
+| `Space` / `v` | Select / visual range select (`Esc` clears) |
+| `Ctrl-a` / `Ctrl-r` | Select all / invert the selection |
+| `y` / `x` / `p` | Copy / cut / paste (`P` overwrites) |
+| **`d`** / **`D`** | **Move to Trash** / **delete permanently** |
+| `r` | Rename (several selected: bulk rename in your editor) |
+| `a` | Create a file; end the name with `/` for a folder |
+| `-` / `_` | Symlink the copied files: absolute / relative path |
+
+**Find and view**
+
+| Key | Action |
+|---|---|
+| `s` / `S` | Search names (fd) / search contents (ripgrep) |
+| `f` | Filter the current folder |
+| `/` | Find the next match by name |
+| `.` | Show / hide hidden files |
+| `Tab` | Details of the hovered file |
+| `J` / `K` | Scroll the preview |
+| `,` then `m` / `e` / `a` / `n` | Sort by modified / extension / A–Z / natural (capital letter = reverse) |
+| `m` then `s` / `p` / `m` | Show size / permissions / modified time beside each name |
+
+**Copy a path, run a command, tabs**
+
+| Key | Action |
+|---|---|
+| `c` then `c` / `d` / `f` / `n` | Copy file path / folder path / filename / filename without extension |
+| `;` / `:` | Run a shell command here (`:` waits for it to finish) |
+| `t` / `1`–`9` | New tab / switch tab (`Ctrl-c` closes it) |
+| `w` | Running tasks (copies and moves in progress) |
+| `q` | Quit (`Q`: quit and stay where you started) |
+
+Image previews are real images in Ghostty, including inside tmux, and coloured
+blocks elsewhere. For a quick look without yazi: `chafa image.jpg`, or `fimg` to
+fuzzy-find and preview the images below the current folder.
+
+**Full documentation**
+
+- [dotfiles README, yazi and chafa](https://github.com/zrrbite/dotfiles#yazi---modern-file-manager)
+
+**Canonical references**
+
+- [yazi docs](https://yazi-rs.github.io/docs/quick-start) · [default keymap](https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/keymap-default.toml)
+
+---
+
 ## Index
 
 ### Tooling
@@ -229,7 +298,8 @@ On Linux, `SUPER-F3` pops this list up in rofi.
 ## Conventions
 
 - Notes live in the repo they describe. This page indexes; it does not copy.
-- The two TL;DR tables are the deliberate exception, kept to *intents* rather
-  than exhaustive binding lists. The config always wins.
+- The TL;DR tables are the deliberate exception, kept to *intents* rather
+  than exhaustive binding lists. The config always wins. Add one only for
+  something used daily.
 - External links are capped at a handful per topic. This is not a bookmark
   dump.
