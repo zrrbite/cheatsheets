@@ -4,7 +4,7 @@ Quick reference for the things I look up often, and an index of where the
 longer notes actually live.
 
 This repo is deliberately thin. It holds **TL;DR tables** for the things I
-reach for daily — tiling window managers, Neovim and yazi — and otherwise it is an
+reach for daily — tiling window managers, Neovim, yazi and tmux — and otherwise it is an
 **index**: pointers to documentation in my other repos, plus a few canonical
 external references per topic. Notes live next to the thing they describe. This
 page tells you which repo to open.
@@ -219,6 +219,16 @@ them all**.
 | `w` | Running tasks (copies and moves in progress) |
 | `q` | Quit (`Q`: quit and stay where you started) |
 
+**Recipe: copy (or move) a file to another folder**
+
+1. Hover the file, or `Space` to select several (`v` for a range).
+2. `y` to copy (`x` to move instead).
+3. Go to the destination: `h` / `l`, or jump with `z` / `Z`.
+4. `p` to paste (`P` overwrites). `Y` cancels; `w` shows progress.
+
+With both folders open: `t` `t` for a second tab, then `1` / `2` to switch
+between source and destination.
+
 Image previews are real images in Ghostty, including inside tmux, and coloured
 blocks elsewhere. In a git repo each file shows its **git status** (modified,
 new, untracked…), and **Markdown files preview rendered** rather than as raw
@@ -234,6 +244,74 @@ preview the images below the current folder.
 **Canonical references**
 
 - [yazi docs](https://yazi-rs.github.io/docs/quick-start) · [default keymap](https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/keymap-default.toml)
+
+---
+
+## TL;DR — tmux
+
+One terminal window, a session per project. Sessions outlive the window and,
+with auto-save, a reboot. The prefix is **`Ctrl+a`**: press it, let go, then
+the key. `Ctrl+a` `?` lists everything. Config in
+[dotfiles/tmux](https://github.com/zrrbite/dotfiles/tree/master/tmux).
+
+**Sessions**
+
+| Key / command | Action |
+|---|---|
+| `t` / `t name` | Session for this folder / a named one (a shell command) |
+| `Ctrl+a` `f` (or `tp`) | Pick a project from `~/Development`, go to its session |
+| Raycast: **tmux session** | The same, from anywhere (`dotf` → `dotfiles`, via zoxide) |
+| `Ctrl+a` `s` | Pick a session from a list |
+| `Ctrl+a` `Tab` | Back to the previous session |
+| `Ctrl+a` `⌘ ←` / `⌘ →` | Previous / next session (keep pressing ⌘ → to cycle) |
+| `Ctrl+a` `$` | Rename the session |
+| `Ctrl+a` `d` | Detach, leaving everything running (`tmux a` to come back) |
+
+**Panes and windows**
+
+| Key | Action |
+|---|---|
+| `Ctrl+a` `\|` / `-` | Split side by side / stacked |
+| `Ctrl+a` `h` `j` `k` `l` | Move between panes (or click) |
+| `Ctrl+a` `z` | Zoom a pane full screen / back |
+| `Ctrl+a` `H` `J` `K` `L` | Resize (hold to repeat) |
+| `Ctrl+a` `c` / `1`–`9` | New window / jump to a window |
+| `Ctrl+a` `,` | Rename the window |
+| `Ctrl+a` `x` | Close the pane |
+
+**Scrollback, copying and reloading**
+
+| Key | Action |
+|---|---|
+| `Ctrl+a` `[` | Copy mode: vi keys, `/` to search, `v` to select, `y` to copy, `q` to leave |
+| `Ctrl+a` `r` | Reload the config |
+
+**Reboots** (tmux-resurrect + tmux-continuum)
+
+| | |
+|---|---|
+| Automatic | Saved every 15 minutes, restored the first time tmux starts after a reboot |
+| `Ctrl+a` `Ctrl+s` | Save now (e.g. right before a restart, to lose nothing) |
+| `Ctrl+a` `Ctrl+r` | Restore the last save by hand |
+
+**Reading the status bar.**
+- **Left:** the session pill turns **yellow** while the prefix is waiting for
+  a key; **COPY** means copy mode.
+- **Right:** all sessions (the current one bright) and the machine.
+
+**Gotchas.**
+- `Ctrl+a` `t` is tmux's **clock**, not the `t` command (`q` leaves it).
+- Inside tmux, `Ctrl+a` no longer goes to the shell. Use `⌘ ←` for line
+  start, or `Ctrl+a` `Ctrl+a`.
+- Auto-save pauses while a second tmux server is running.
+
+**Full documentation**
+
+- [dotfiles/doc/tmux.md](https://github.com/zrrbite/dotfiles/blob/master/doc/tmux.md) — every key, the reasoning, and a one-week plan for getting fluent
+
+**Canonical references**
+
+- [tmux wiki](https://github.com/tmux/tmux/wiki) · [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) · [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
 
 ---
 
