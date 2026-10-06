@@ -138,6 +138,7 @@ Leader is `Space`. Config in
 | Key | Action |
 |---|---|
 | `<leader>e` | Toggle file tree (neo-tree) |
+| `<leader>-` / `<leader>_` | yazi at the current file / at the project root. Pick a file to open it here. |
 | `C-h/j/k/l` | Move between splits |
 | `C-w` `v` / `s` / `q` | Split vertical / horizontal / close |
 | `<leader>mp` | Markdown preview (glow) |
@@ -219,8 +220,12 @@ them all**.
 | `q` | Quit (`Q`: quit and stay where you started) |
 
 Image previews are real images in Ghostty, including inside tmux, and coloured
-blocks elsewhere. For a quick look without yazi: `chafa image.jpg`, or `fimg` to
-fuzzy-find and preview the images below the current folder.
+blocks elsewhere. In a git repo each file shows its **git status** (modified,
+new, untracked…), and **Markdown files preview rendered** rather than as raw
+text. From nvim: `Space` `-` opens yazi at the current file.
+
+For a quick look without yazi: `chafa image.jpg`, or `fimg` to fuzzy-find and
+preview the images below the current folder.
 
 **Full documentation**
 
