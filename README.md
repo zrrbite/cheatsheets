@@ -189,7 +189,7 @@ them all**.
 | `Enter` / `o` | Open with the default app (`O`: choose the app) |
 | `Space` / `v` | Select / visual range select (`Esc` clears) |
 | `Ctrl-a` / `Ctrl-r` | Select all / invert the selection |
-| `y` / `x` / `p` | Copy / cut / paste (`P` overwrites) |
+| `y` / `x` / `p` | Copy / cut / paste (`P` overwrites, `Y` cancels) |
 | **`d`** / **`D`** | **Move to Trash** / **delete permanently** |
 | `r` | Rename (several selected: bulk rename in your editor) |
 | `a` | Create a file; end the name with `/` for a folder |
@@ -214,7 +214,7 @@ them all**.
 |---|---|
 | `c` then `c` / `d` / `f` / `n` | Copy file path / folder path / filename / filename without extension |
 | `;` / `:` | Run a shell command here (`:` waits for it to finish) |
-| `t` / `1`–`9` | New tab / switch tab (`Ctrl-c` closes it) |
+| `t` `t` / `1`–`9` | New tab / switch tab (`t` `r` renames it, `Ctrl-c` closes it) |
 | `w` | Running tasks (copies and moves in progress) |
 | `q` | Quit (`Q`: quit and stay where you started) |
 
